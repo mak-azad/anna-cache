@@ -30,7 +30,7 @@ if [[ -z "$REPO_BRANCH" ]]; then
   REPO_BRANCH="master"
 fi
 
-git remote add origin https://github.com/$REPO_ORG/anna-cache
+git remote add origin https://github.com/mak-azad/anna-cache
 git fetch -p origin
 git checkout -b brnch origin/$REPO_BRANCH
 
@@ -38,6 +38,9 @@ cd build && make -j4 && cd ..
 
 # Do not start the server until conf/anna-config.yml has been copied onto this
 # pod -- if we start earlier, we won't now how to configure the system.
+
+cp conf/anna-base.yml conf/anna-config.yml
+
 while [[ ! -f "conf/anna-config.yml" ]]; do
   continue
 done
