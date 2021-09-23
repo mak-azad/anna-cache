@@ -42,6 +42,7 @@ cd build && make -j4 && cd ..
 cp conf/anna-base.yml conf/anna-config.yml
 
 while [[ ! -f "conf/anna-config.yml" ]]; do
+  cp conf/anna-base.yml conf/anna-config.yml
   continue
 done
 
